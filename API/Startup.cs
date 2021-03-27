@@ -30,6 +30,7 @@ namespace API
             {
 
                   services.AddControllers();
+
                   services.AddSwaggerGen(c =>
                   {
                         c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
@@ -38,6 +39,14 @@ namespace API
                   services.AddDbContext<DataContext>(opt =>
                   {
                         opt.UseSqlite(_config.GetConnectionString("DefaultConnection"));
+                  });
+
+                  services.AddCors(opt => 
+                  {
+                        opt.AddPolicy("CorsPolicy", policy => 
+                        {
+                        policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
+                        });
                   });
             }
 
@@ -54,6 +63,8 @@ namespace API
                   // app.UseHttpsRedirection();
 
                   app.UseRouting();
+
+                  app.UseCors("CorsPolicy");
 
                   app.UseAuthorization();
 
