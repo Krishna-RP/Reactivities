@@ -13,7 +13,7 @@ function App() {
     })
   }, [] )
 
-  return (
+  return(
     <div>
       <Header as = 'h2' icon ='users' content='Reactivities'/>        
         <List>
