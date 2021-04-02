@@ -7,13 +7,14 @@ import { Route, useLocation } from "react-router";
 import HomePage from "../../features/home/HomePage";
 import ActivityForm from "../../features/activities/form/ActivityForm";
 import ActivityDetails from "../../features/details/ActivityDetails";
+import TestErrors from "../../features/errors/TestError";
 
 function App() {
   const location = useLocation();
 
   return (
     <>
-      <Route exact path="/" component={HomePage} />
+      <Route exact path="/" component={HomePage}/>
       <Route
         path={"/(.+)"}
         render={() => (
@@ -27,8 +28,9 @@ function App() {
                 path={["/createActivity", "/manage/:id"]}
                 component={ActivityForm}
               />
+              <Route path='/errors'component={TestErrors} />
             </Container>
-          </>
+          </> 
         )}
       />
     </>
