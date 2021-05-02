@@ -1,4 +1,9 @@
 {
       "prettier.tabWidth": 3,
-      "editor.formatOnSave": true
+      "editor.formatOnSave": true,
+      "workbench.colorTheme": "Visual Studio 2019 Dark",
+      "workbench.iconTheme": "material-icon-theme",
+      "workbench.preferredDarkColorTheme": "Visual Studio Light",
+      "workbench.preferredLightColorTheme": "Visual Studio Light",
+      "editor.semanticHighlighting.enabled": true
 }

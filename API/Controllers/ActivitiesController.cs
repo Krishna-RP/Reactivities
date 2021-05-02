@@ -5,6 +5,7 @@ using Domain;
 using Microsoft.AspNetCore.Mvc;
 using Application.Activities;
 using System.Threading;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
@@ -16,6 +17,7 @@ namespace API.Controllers
                   return HandleResult(await Mediator.Send(new List.Query()));
             }
 
+            
             [HttpGet("{id}")] //activities by id
             public async Task<IActionResult> GetActivity(Guid id)
             {
