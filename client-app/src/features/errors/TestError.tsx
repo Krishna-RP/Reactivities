@@ -4,8 +4,8 @@ import axios from "axios";
 import ValidationErrors from "./ValidationErrors";
 
 export default function TestErrors() {
-   const baseUrl = "http://localhost:5000/api/";
-   const [errors, setErrors] =useState(null);
+   const baseUrl = process.env.REACT_APP_API_URL;
+   const [errors, setErrors] = useState(null);
 
    function handleNotFound() {
       axios
@@ -38,7 +38,7 @@ export default function TestErrors() {
    }
 
    function handleValidationError() {
-      axios.post(baseUrl + "activities", {}).catch(err => setErrors (err));
+      axios.post(baseUrl + "activities", {}).catch((err) => setErrors(err));
    }
 
    return (
@@ -84,9 +84,7 @@ export default function TestErrors() {
                />
             </Button.Group>
          </Segment>
-         { errors &&
-            <ValidationErrors errors={errors} />
-         } 
+         {errors && <ValidationErrors errors={errors} />}
       </>
    );
 }
